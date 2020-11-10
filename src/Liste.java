@@ -28,8 +28,8 @@ public class Liste {
         return nouvListe;
     }
 
-    // fonction qui prends un Arbre arbre en paramètre et qui insère cet arbre à sa place dans la liste en fonction de sa fréquence
-    // cette fonction renvoi une nouvelle Liste
+    /* fonction qui prends un Arbre arbre en paramètre et qui insère cet arbre à sa place dans la liste en fonction de sa fréquence
+    cette fonction renvoi une nouvelle Liste */
     public Liste insererOrd(Arbre arbre) {
         if (this.vide || arbre.getFrequence() <= this.tete.getFrequence()) {
             return this.prefixer(arbre);
@@ -37,9 +37,9 @@ public class Liste {
             return this.reste.insererOrd(arbre).prefixer(this.tete);
     }
 
-    // fonction qui prends le chemin du fichier des fréquences en paramètre
-    // lis toutes les fréquences et les lettres associés dans le fichier et insere en ordre les arbres correspondants dans la liste
-    // une nouvelle liste est renvoyé
+    /* fonction qui prends le chemin du fichier des fréquences en paramètre
+    lis toutes les fréquences et les lettres associés dans le fichier et insere en ordre les arbres correspondants dans la liste
+    une nouvelle liste est renvoyée */
     public Liste insererFrequences(String filePath) throws IOException {
         File file = new File(filePath);
 
@@ -52,5 +52,15 @@ public class Liste {
         }
         reader.close();
         return liste;
+    }
+
+    static public Arbre algoHuffman(Liste liste) {
+        if(!liste.reste.vide) {
+            Arbre arbre = new Arbre(liste.tete.getFrequence() + liste.reste.tete.getFrequence());
+            arbre.setFilsGauche(liste.tete);
+            arbre.setFilsDroit(liste.reste.tete);
+            return Liste.algoHuffman(liste.reste.reste.insererOrd(arbre));
+        }
+        else return liste.tete;
     }
 }

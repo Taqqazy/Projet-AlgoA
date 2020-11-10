@@ -20,6 +20,13 @@ public class Arbre {
         this.filsDroit = new Arbre();
     }
 
+    public Arbre(int frequence) {
+        this.vide = false;
+        this.frequence = frequence;
+        this.filsGauche = new Arbre();
+        this.filsDroit = new Arbre();
+    }
+
     public Arbre getFilsGauche() {
         return filsGauche;
     }
