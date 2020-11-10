@@ -6,7 +6,7 @@ public class Programme {
         
         Liste liste = new Liste();
         liste = liste.insererFrequences("C:/Users/Tizba/Documents/AlgoA/Projet-AlgoA/input/freq.txt");
-        Arbre arbreCodage = Liste.algoHuffman(liste);
+        Arbre arbreCodage = Liste.ListeVersArbreCodage(liste);
     }
 
 

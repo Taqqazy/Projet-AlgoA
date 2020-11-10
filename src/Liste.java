@@ -54,12 +54,12 @@ public class Liste {
         return liste;
     }
 
-    static public Arbre algoHuffman(Liste liste) {
+    static public Arbre ListeVersArbreCodage(Liste liste) {
         if(!liste.reste.vide) {
             Arbre arbre = new Arbre(liste.tete.getFrequence() + liste.reste.tete.getFrequence());
             arbre.setFilsGauche(liste.tete);
             arbre.setFilsDroit(liste.reste.tete);
-            return Liste.algoHuffman(liste.reste.reste.insererOrd(arbre));
+            return Liste.ListeVersArbreCodage(liste.reste.reste.insererOrd(arbre));
         }
         else return liste.tete;
     }
