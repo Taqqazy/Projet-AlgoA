@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Programme",
+            "request": "launch",
+            "mainClass": "Programme",
+            "projectName": "Projet-AlgoA_10b9273"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
