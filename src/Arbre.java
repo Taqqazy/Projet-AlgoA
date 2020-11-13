@@ -60,14 +60,15 @@ public class Arbre {
     public boolean isVide() {
         return vide;
     }
-
+    /* fonction qui redirige vers la fonction récursive codageChar avec en paramètres un ArrayList vide et un String vide
+    la fonction retourne un ArrayList*/
     public ArrayList<Couple> codageLettres() {
         ArrayList<Couple> tab = new ArrayList<Couple>();
         String code = "";
         codageChar(tab, code);
         return tab;
     }
-
+    /* fonction qui prend en paramètres un ArrayList vide et un String vide et qui calcule pour chaque lettre le code correspondant*/
     private void codageChar(ArrayList<Couple> tab, String code) {
         if (this.filsGauche.vide && this.filsDroit.vide) {
             tab.add(new Couple(this.lettre, code));
@@ -79,7 +80,8 @@ public class Arbre {
             this.filsDroit.codageChar(tab, code + "1");
         }
     }
-
+    /* fonction qui prend en paramètre le chemin d'un texte à coder et qui calcule le texte codé grâce à la fonction codageLettres
+    la fonction renvoie le texte codé*/
     public String codageTexte(String filePath) throws IOException {
         String tempString = "";
         ArrayList<Couple> tempCodes = codageLettres();
@@ -102,7 +104,8 @@ public class Arbre {
         reader.close();
         return tempString;
     }
-
+    /* fonction qui prend en paramètre le texte codé et retrouve pour chaque code le caractère associé en suivant le code
+    fonction retourne le texte décodé*/
     public String decodageTexte(String texteCode) {
         String tempString = "";
         Arbre arbre = this;

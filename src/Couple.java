@@ -1,3 +1,6 @@
+/**
+ * Arbre
+ */
 public class Couple {
     private String code;
     private char caractere;
